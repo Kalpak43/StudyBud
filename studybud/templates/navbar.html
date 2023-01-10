@@ -1,0 +1,58 @@
+<style>
+    .navbar {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    
+    .logo {
+        align-self: center;
+        justify-self: left;
+        padding-left: 1rem;
+    }
+    .search {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        align-self: center;
+        padding: 1rem;
+    }
+    .login {
+        align-self: center;
+        justify-self: right;
+        padding: 1rem;
+    }
+    .search input {
+        width: 50%;
+        font-size: 1.2rem;
+        border-radius: 1rem;
+        padding-left: 1rem;
+    }
+    button {
+        font-size: 1.2rem;
+        border-radius: 1rem;
+    }
+</style>
+
+<div class="navbar">
+    <a href="/" class="logo">
+        <h1>LOGO</h1>
+    </a>
+    
+    <form method="get" action="{% url 'home' %}" class="search">
+        <input type="text" name="q" id="q" placeholder="Search Rooms" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if request.user.is_authenticated %}
+        <div class="login">
+            <p>Hello {{request.user}}</p>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    {% else %}
+        <div class="login">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    {% endif %}
+    
+</div>
+
+<hr>
