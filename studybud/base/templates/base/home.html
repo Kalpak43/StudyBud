@@ -5,24 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyBud</title>
-    <style>
-        .homecontainer {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-        }
-
-        .sidebar, .middle, .recent {
-            padding: 1rem;
-            border-right: 2px solid black;
-        }
-        .recent {
-            border: none;
-        }
-        .sidebar {
-            min-height: 50vh;
-
-        }
-    </style>
 </head>
 <body>
     {% extends 'main.html' %}
@@ -35,12 +17,11 @@
         </div>
     
         <div class="middle">
-            <h3>Rooms</h3>
-            <p>{{room_count}} rooms available</p>
-            <hr>
-            <div>
-                <a href="{% url 'create_room' %}">Create Room</a>
-                <hr>
+            <div class="Room-header">
+                <h3>Rooms <small>({{room_count}} rooms available)</small></h3>
+                <div class="create-room">
+                    <a href="{% url 'create_room' %}">Create Room</a>
+                </div>
             </div>
             {% include 'base/feed_component.html' %}
         </div>

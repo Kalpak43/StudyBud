@@ -1,6 +1,6 @@
-<div>
+<div class="feed-container">
     {% for room in rooms %}
-        <div>
+        <div class="feed-card">
             <a href="{% url 'user_profile' room.host.id %}">@{{room.host.username}}</a>
             {% if request.user == room.host %}
             <a href="{% url 'update_room' room.id%}">Edit</a>

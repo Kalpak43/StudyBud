@@ -1,4 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap');
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
 body {
-    background-color: rgb(48, 45, 45);
-    color: rgb(197, 182, 182);
+    font-family: 'Sofia Sans', sans-serif;
+    background-color: rgb(37, 42, 57);
+    color: whitesmoke;
+    height: 100vh;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+a:focus, a:hover {
+    color: burlywood;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.logo {
+    /* font-size: 1.6rem; */
+    justify-self: left; 
+
+    padding-left: 1rem;
+}
+.search {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    /* width: inherit; */
+    align-items: center;
+    justify-content: center;
+    /* align-self: center; */
+    padding: 1rem;
+    text-align: center;
+}
+.search form {
+    width: inherit;
+}
+.search input {
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    border-color: black;
+}
+.search button {
+    font-size: 1.2rem;
+    border-radius: 1rem;
+}
+.login {
+    grid-column-start: 3;
+    grid-column-end: -1;
+    display: flex;
+    width: inherit;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.homecontainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.sidebar, .middle, .recent {
+    /* padding: 1rem; */
+    height: 83vh;
+    border-right: 2px solid black;
+    overflow: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar, .middle::-webkit-scrollbar, .recent::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.sidebar::-webkit-scrollbar-thumb, .middle::-webkit-scrollbar-thumb, .recent::-webkit-scrollbar-thumb {
+    background-color: rgba(63, 63, 130, 0.456);
+    border-radius: 0.5rem;
+}
+
+.sidebar::-webkit-scrollbar-track, .middle::-webkit-scrollbar-track, .recent::-webkit-scrollbar-track {
+    display: none;
+}
+
+.recent {
+    border: none;
+}
+
+.Room-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    /* box-shadow: 2px rgb(255, 255, 255); */
+    padding: 0.8rem;
+    margin-bottom: 0.4rem;
+    background-color: rgb(23, 22, 22);
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.create-room {
+    width: 100%;
+    text-align: right;
+}
+
+.create-room a {
+    background-color: rgb(64, 63, 63);
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+}
+
+.create-room a:hover {
+    color: inherit;
+    background-color: gray;
+}
+
+.feed-card {
+    background-color: rgba(80, 70, 146, 0.288);
+    /* width: 95%; */
+    border-radius: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
