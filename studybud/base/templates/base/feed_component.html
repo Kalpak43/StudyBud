@@ -1,14 +1,27 @@
+<div class="Room-header">
+    <h3>Rooms <small>({{room_count}} rooms available)</small></h3>
+    <div class="create-room">
+        <a href="{% url 'create_room' %}">Create Room</a>
+    </div>
+</div>
 <div class="feed-container">
     {% for room in rooms %}
         <div class="feed-card">
-            <a href="{% url 'user_profile' room.host.id %}">@{{room.host.username}}</a>
+            <div class="room-info">
+                <a href="{% url 'user_profile' room.host.id %}">@{{room.host.username}}</a>
+                <h4>{{room.id}}-- <a href="{% url 'room' room.id %}">{{room.name}}</a></h4>
+   
+            </div>
             {% if request.user == room.host %}
-            <a href="{% url 'update_room' room.id%}">Edit</a>
-            <a href="{% url 'delete_room' room.id%}">Delete</a>
+            <div class="room-op">
+                <a href="{% url 'update_room' room.id%}">Edit</a>
+                <a href="{% url 'delete_room' room.id%}">Delete</a>
+            </div>
             {% endif %}
-            <h4>{{room.id}}-- <a href="{% url 'room' room.id %}">{{room.name}}</a></h4>
-            <small>{{room.topic.name}}</small>    
-            <hr>
+            <div class="room-topics">
+                <small>{{room.topic.name}}</small> 
+                <hr>
+            </div>
         </div>
     {% endfor %}
 </div>

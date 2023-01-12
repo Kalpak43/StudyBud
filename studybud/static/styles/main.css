@@ -13,6 +13,7 @@ body {
     height: 100vh;
 }
 
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -78,9 +79,7 @@ a:focus, a:hover {
 }
 
 .sidebar, .middle, .recent {
-    /* padding: 1rem; */
     height: 83vh;
-    border-right: 2px solid black;
     overflow: auto;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
@@ -91,7 +90,7 @@ a:focus, a:hover {
 }
 
 .sidebar::-webkit-scrollbar-thumb, .middle::-webkit-scrollbar-thumb, .recent::-webkit-scrollbar-thumb {
-    background-color: rgba(63, 63, 130, 0.456);
+    background-color: rgba(177, 177, 223, 0.456);
     border-radius: 0.5rem;
 }
 
@@ -99,11 +98,8 @@ a:focus, a:hover {
     display: none;
 }
 
-.recent {
-    border: none;
-}
 
-.Room-header {
+.Room-header, .recent-header, .browse-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-bottom-left-radius: 1rem;
@@ -122,18 +118,30 @@ a:focus, a:hover {
     text-align: right;
 }
 
-.create-room a {
+.create-room a, .browse-card a {
     background-color: rgb(64, 63, 63);
     border-radius: 0.5rem;
     padding: 0.3rem;
+    margin-bottom: 1rem;
 }
 
-.create-room a:hover {
-    color: inherit;
+.browse-card a {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.create-room a:hover, .browse-card a:hover {
+    color: black;
     background-color: gray;
 }
 
 .feed-card {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.feed-card, .recent-card {
     background-color: rgba(80, 70, 146, 0.288);
     /* width: 95%; */
     border-radius: 1rem;
@@ -141,3 +149,52 @@ a:focus, a:hover {
     margin-bottom: 0.2rem;
 }
 
+.feed-card small {
+    display: inline-block;
+    border-radius: 0.3rem;
+    background-color: grey;
+    color: black;
+    padding: 0.2rem;
+}
+
+.room-op {
+    text-align: right;
+}
+
+.room-topics {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.recent, .sidebar {
+    border: none;
+    margin: 1rem;
+    /* padding: 0.5rem; */
+    max-height: 50vh;
+    border-radius: 1rem;
+    border: 2px solid black;
+}
+
+.browse-card {
+    display: block;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    height: auto;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.room-create, .loginform {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    /* grid-row-start: 2; */
+    text-align: center;
+}
+
+.room-create {
+    text-align: justify;
+}

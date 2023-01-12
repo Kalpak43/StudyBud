@@ -1,11 +1,11 @@
-<h3>Browse</h3>
-<hr>
-<div>
-    <a href="{% url 'home' %}">All</a>
+<div class="browse-header">
+    <h3>Browse</h3>
 </div>
 
-{% for topic in topics %}
-    <div>
-        <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
-    </div>
-{% endfor %}
+<div class="browse-card">
+    <a href="{% url 'home' %}">All</a>
+    
+    {% for topic in topics %}
+    <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
+    {% endfor %}
+</div>
